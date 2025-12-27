@@ -3,25 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>タイムスケジュール</title>
-<meta name="viewport" content="width=device-width, initial-scale=0.8">
+
+<!-- 讓手機依裝置寬度顯示 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
   body {
-  font-family: Arial, "Microsoft JhengHei", sans-serif;
-  padding: 20px;
-  zoom: 70%;
-}
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
   }
 
   h1 {
     margin-bottom: 10px;
+    font-size: 1.2rem;
   }
 
- iframe {
-  width: 100%;
-  height: 85vh;
-  border: 1px solid #ccc;
-  zoom: 1;   /* ← 重點 */
-}
+  /* 外層容器：負責捲動 */
+  .sheet-wrap {
+    width: 100%;
+    height: 85vh;
+    overflow: auto;
+    border: 1px solid #ccc;
+  }
+
+  /* iframe 本體 */
+  .sheet-wrap iframe {
+    width: 1600px;          /* 故意用桌機寬度載入 */
+    height: 1200px;
+    border: none;
+
+    transform: scale(0.6); /* ← 看起來約 60%（接近你要的 50%） */
+    transform-origin: top left;
   }
 </style>
 </head>
@@ -30,16 +43,11 @@
 
 <h1>タイムスケジュール</h1>
 
-<iframe 
-  src=https://docs.google.com/spreadsheets/d/1-i7lTcqvXMDs9OyBmUeHYquj8Q_v8MJGDlqlOfjxLE0/edit?usp=sharing>
-</iframe>
+<div class="sheet-wrap">
+  <iframe
+    src=https://docs.google.com/spreadsheets/d/1-i7lTcqvXMDs9OyBmUeHYquj8Q_v8MJGDlqlOfjxLE0/edit?usp=sharing>
+  </iframe>
+</div>
 
 </body>
 </html>
-
-
-
-
-
-
-
